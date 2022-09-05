@@ -1,24 +1,24 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './components/Tweets';
+import { QueryClient, QueryClientProvider } from 'react-query'
+import Tweets from './components/Tweets';
+ 
+ const queryClient = new QueryClient()
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hi
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      textAlign: "center"
+    }}>
+      <QueryClientProvider client={queryClient}>
+        <Tweets/>
+      </QueryClientProvider>
     </div>
   );
 }
